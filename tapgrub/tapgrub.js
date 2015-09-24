@@ -1,6 +1,11 @@
 Taps = new Mongo.Collection('taps');
 
 if (Meteor.isClient) {
+
+  Accounts.ui.config({
+    passwordSignupFields: "USERNAME_ONLY"
+  });
+
  // this code only runs on the client
  angular.module('tapgrub',['angular-meteor']);
 
@@ -14,7 +19,9 @@ if (Meteor.isClient) {
     $scope.addTap = function (newTap) {
       $scope.taps.push( {
         text: newTap,
-        createdAt: new Date()
+        createdAt: new Date(),              //current time
+        owner: Meteor.userId(),             //_id of logged in user
+        username: Meteor.user().username    // username of logged in user
       });
     };
 

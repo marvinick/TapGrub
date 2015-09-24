@@ -7,8 +7,13 @@
       Hide Completed Taps
     </label>
 
+    <meteor-include src="loginButtons"></meteor-include>
 
-    <form class="new-tap" ng-submit="addTap(newTap); newTap='';">
+    <!-- add a form below the H1 -->
+    <form class="new-tap"
+          ng-submit="addTap(newTap); newTap='';"
+          ng-show="$root.currentUser">
+
       <input ng-model="newTap" type="text"
             name="text" placeholder="Type to add new taps" />
     </form>
@@ -18,7 +23,9 @@
     <li ng-class="{'checked': tap.checked}">
       <button class="delete" ng-click="taps.remove(tap)">&times;</button>
       <input type="checkbox" ng-model="tap.checked" class="toggle-checked" />
-      <span class="text"> {{tap.text}} </span>
+      <span class="text">
+        <strong>{{ tap.username }}</strong> - {{ tap.text}}
+      </span>
     </li>
   </ul>
 </div>
