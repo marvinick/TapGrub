@@ -1,6 +1,13 @@
 <div class="container">
   <header>
     <h1>Tap Grub</h1>
+
+    <label class="hide-completed">
+      <input type="checkbox" ng-model="$parent.hideCompleted"/>
+      Hide Completed Taps
+    </label>
+
+
     <form class="new-tap" ng-submit="addTap(newTap); newTap='';">
       <input ng-model="newTap" type="text"
             name="text" placeholder="Type to add new taps" />

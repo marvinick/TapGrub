@@ -8,7 +8,7 @@ if (Meteor.isClient) {
   function ($scope, $meteor) {
 
     $scope.taps = $meteor.collection(function() {
-      return Taps.find({}, { sort: { createdAt: -1 } })
+      return Taps.find($scope.getReactively('query'), { sort: { createdAt: -1 } })
     });
 
     $scope.addTap = function (newTap) {
@@ -17,6 +17,13 @@ if (Meteor.isClient) {
         createdAt: new Date()
       });
     };
+
+    $scope.$watch('hideCompleted', function() {
+      if ($scope.hideCompleted)
+        $scope.query = {checked: {$ne: true}};
+      else
+        $scope.query = {};
+    });
 
   }]);
 }
