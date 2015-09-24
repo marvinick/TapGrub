@@ -20,10 +20,17 @@
   </header>
 
   <ul ng-repeat='tap in taps'>
-    <li ng-class="{'checked': tap.checked}">
+    <li ng-class="{'checked': tap.checked, 'private': tap.private}">
       <button class="delete" ng-click="deleteTap(tap)">&times;</button>
       <input type="checkbox" ng-checked="tap.checked"
               ng-click="setChecked(tap)" class="toggle-checked" />
+
+      <button class="toggle-private"
+                ng-if="tap.owner === $root.currentUser._id"
+                ng-click="setPrivate(tap)">
+          {{tap.private == true ? "Private" : "Public"}}
+      </button>
+
       <span class="text">
         <strong>{{ tap.username }}</strong> - {{ tap.text}}
       </span>
