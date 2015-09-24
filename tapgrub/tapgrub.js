@@ -25,5 +25,9 @@ if (Meteor.isClient) {
         $scope.query = {};
     });
 
+    $scope.incompleteCount = function() {
+      return Taps.find({ checked: {$ne: true} }).count();
+    };
+
   }]);
 }
