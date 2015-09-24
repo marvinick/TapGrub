@@ -17,13 +17,15 @@ if (Meteor.isClient) {
     });
 
     $scope.addTap = function (newTap) {
-      $scope.taps.push( {
-        text: newTap,
-        createdAt: new Date(),              //current time
-        owner: Meteor.userId(),             //_id of logged in user
-        username: Meteor.user().username    // username of logged in user
-      });
+      $meteor.call('addTap', newTap);
     };
+
+    $scope.deleteTap = function (tap) {
+      $meteor.call('deleteTap', tap_id);
+    };
+
+    $scope.setChecked = function (tap) {
+      $meteor.call('setChecked', tap._id, !tap.checked);
 
     $scope.$watch('hideCompleted', function() {
       if ($scope.hideCompleted)
@@ -38,3 +40,25 @@ if (Meteor.isClient) {
 
   }]);
 }
+
+Meteor.methods({
+  addTap: function (text) {
+    //make sure the user is logged in before inserting a task
+    if (! Meteor.userId()) {
+      throw new Meteor.Error('not authorized');
+    }
+
+    Tap.insert({
+      text: text,
+      createdAt: new Date(),
+      owner: Meteor.userId(),
+      username: Meteor.user().username
+    });
+  },
+  deleteTap: function (tapId) {
+    Taps.remove(tapId);
+  },
+  setChecked: function (tapId, setChecked) {
+    Taps.update(tapId, { $set: { checked: setChecked} });
+  }
+})

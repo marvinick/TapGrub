@@ -21,8 +21,9 @@
 
   <ul ng-repeat='tap in taps'>
     <li ng-class="{'checked': tap.checked}">
-      <button class="delete" ng-click="taps.remove(tap)">&times;</button>
-      <input type="checkbox" ng-model="tap.checked" class="toggle-checked" />
+      <button class="delete" ng-click="deleteTap(tap)">&times;</button>
+      <input type="checkbox" ng-checked="tap.checked"
+              ng-click="setChecked(tap)" class="toggle-checked" />
       <span class="text">
         <strong>{{ tap.username }}</strong> - {{ tap.text}}
       </span>
