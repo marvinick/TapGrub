@@ -7,7 +7,9 @@ if (Meteor.isClient) {
  angular.module('tapgrub').controller('TapCtrl', ['$scope', '$meteor',
   function ($scope, $meteor) {
 
-    $scope.taps = $meteor.collection(Taps);
+    $scope.taps = $meteor.collection(function() {
+      return Taps.find({}, { sort: { createdAt: -1 } })
+    });
 
     $scope.addTap = function (newTap) {
       $scope.taps.push( {
