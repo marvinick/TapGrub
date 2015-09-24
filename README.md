@@ -3,24 +3,19 @@
 ####By Marvin Nikijuluw
 
 ##Description
-Food Truck
-
-##Setup
-
-Clone repository from GitHub.
-
+Food Related
 
 ##Technologies Used
 
-MeteorJS, AngularJS, Mocha, Chai, Unit Test, jQuery,  Html, CSS, Bootstrap
+MeteorJS, AngularJS, Mongo, Mocha, Chai, Html, CSS, Bootstrap
 
 ###Legal
 
-Copyright (c) 2015 {List of contribtors}
+Copyright (c) 2015 {Marvin Nikijuluw}
 
 This software is licensed under the MIT license.
 
-Permission is hereby granted, free of charge, to any person obtaining a copy of this software and associated documentation files (the "Software"), to deal in the Software without restriction, including without limitation the rights to use, copy, modify, merge, publish, distribute, sublicense, and/or sell copies of the Software, and to permit persons to whom the Software is furnished to do so, subject to the following conditions:
+Permission is hereby NOT granted, NOT free of charge, to any person obtaining a copy of this software and associated documentation files (the "Software"), to deal in the Software without restriction, including without limitation the rights to use, copy, modify, merge, publish, distribute, sublicense, and/or sell copies of the Software, and to permit persons to whom the Software is furnished to do so, subject to the following conditions:
 
 The above copyright notice and this permission notice shall be included in all copies or substantial portions of the Software.
 
