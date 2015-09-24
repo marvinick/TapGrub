@@ -1,14 +1,8 @@
 <head>
-  <title>tapgrub</title>
+  <title>Tap & Grub It</title>
 </head>
 
-<body>
-  <h1>Tap and grub it</h1>
-
-  {{> hello}}
+<body ng-app="tapgrub"
+  ng-include="'tapgrub.ng.html'"
+  ng-controller="TapCtrl">
 </body>
-
-<template name="hello">
-  <button class="btn btn-info">Click Me</button>
-  <p>You've pressed the button {{counter}} times.</p>
-</template>

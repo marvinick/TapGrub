@@ -1,23 +1,14 @@
 if (Meteor.isClient) {
-  // counter starts at 0
-  Session.setDefault('counter', 0);
+ // this code only runs on the client
+ angular.module('tapgrub',['angular-meteor']);
 
-  Template.hello.helpers({
-    counter: function () {
-      return Session.get('counter');
-    }
-  });
+ angular.module('tapgrub').controller('TapCtrl', ['$scope',
+  function ($scope) {
 
-  Template.hello.events({
-    'click button': function () {
-      // increment the counter when button is clicked
-      Session.set('counter', Session.get('counter') + 1);
-    }
-  });
-}
-
-if (Meteor.isServer) {
-  Meteor.startup(function () {
-    // code to run on server at startup
-  });
+    $scope.taps = [
+      { text: 'This is task 1' },
+      { text: 'This is task 2' },
+      { text: 'This is task 3' }
+    ];
+  }]);
 }
