@@ -8,6 +8,10 @@
   </header>
 
   <ul ng-repeat='tap in taps'>
-    <li>{{tap.text}}</li>
+    <li ng-class="{'checked': tap.checked}">
+      <button class="delete" ng-click="taps.remove(tap)">&times;</button>
+      <input type="checkbox" ng-model="tap.checked" class="toggle-checked" />
+      <span class="text"> {{tap.text}} </span>
+    </li>
   </ul>
 </div>
