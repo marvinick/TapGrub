@@ -9,5 +9,12 @@ if (Meteor.isClient) {
 
     $scope.taps = $meteor.collection(Taps);
 
+    $scope.addTap = function (newTap) {
+      $scope.taps.push( {
+        text: newTap,
+        createdAt: new Date()
+      });
+    };
+
   }]);
 }

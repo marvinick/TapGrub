@@ -1,6 +1,10 @@
 <div class="container">
   <header>
     <h1>Tap Grub</h1>
+    <form class="new-tap" ng-submit="addTap(newTap); newTap='';">
+      <input ng-model="newTap" type="text"
+            name="text" placeholder="Type to add new taps" />
+    </form>
   </header>
 
   <ul ng-repeat='tap in taps'>
