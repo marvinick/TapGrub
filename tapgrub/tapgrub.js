@@ -55,7 +55,7 @@ Meteor.methods({
       throw new Meteor.Error('not authorized');
     }
 
-    Tap.insert({
+    Taps.insert({
       text: text,
       createdAt: new Date(),
       owner: Meteor.userId(),
