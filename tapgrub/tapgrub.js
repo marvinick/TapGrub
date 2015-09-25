@@ -28,6 +28,7 @@ if (Meteor.isClient) {
 
     $scope.setChecked = function (tap) {
       $meteor.call('setChecked', tap._id, !tap.checked);
+    };
 
     $scope.setPrivate = function (tap) {
       $meteor.call('setPrivate', tap._id, ! tap.private);
@@ -44,7 +45,7 @@ if (Meteor.isClient) {
       return Taps.find({ checked: {$ne: true} }).count();
     };
 
-  }]);
+   }]);
 }
 
 Meteor.methods({
